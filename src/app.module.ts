@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { TodoModule } from './todo/todo.module';
 
 @Module({
-  imports: [],
+  imports: [MongooseModule.forRoot('mongodb+srv://matigodoy:<CONTRASEÑA>@cluster0.eirpmkf.mongodb.net/matigodoydb?retryWrites=true&w=majority'), TodoModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
